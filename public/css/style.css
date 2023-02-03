@@ -1,0 +1,76 @@
+
+a{
+    text-decoration: none;
+}
+.liste{
+ display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.recette{
+margin: 5px;
+    border-radius: 10%;
+    padding: 10px;
+    background-color:#F9F8F3;
+
+}
+.titre{
+    display: flex;
+    justify-content: flex-end;
+}
+.test{
+    width: 20px;
+    height: 20px;
+    color: #B0413E;
+}
+button {
+    transition-duration: 0.4s;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    border: 2px solid #a5c77f;
+}
+
+button:hover {
+    background-color: #d4e3c3; /* Green */
+    color: white;
+}
+.titre_recette{
+    color: black;
+    font-family:Georgia;
+    font-size: 15px;
+}
+.lien_etoile{
+    margin: auto;
+}
+.image_recette{
+    border-radius: 40%;
+}
+.triRecettes{
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid darkgray;
+    border-top: 1px solid darkgray;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.button_text{
+    color:#4CAF50 ;
+}
+.ul_nav li:first-child{
+    list-style-type:none;
+    color: #B0413E;
+}
+.ul_nav{
+    display: flex;
+    list-style-type:'/';
+}
+.ul_nav li {
+    margin-left: 10px;
+}
+.titre_accueil{
+    font-family:fantasy;
+    font-size: 65px;
+    text-align: center;
+    color: black;
+}

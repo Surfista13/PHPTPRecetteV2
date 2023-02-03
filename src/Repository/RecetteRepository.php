@@ -63,4 +63,12 @@ class RecetteRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+     public function lister(): array
+    {
+        return $this->createQueryBuilder('r')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

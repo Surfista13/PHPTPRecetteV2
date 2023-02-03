@@ -6,6 +6,7 @@ use App\Entity\Recette;
 use App\Repository\RecetteRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,20 +17,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class ListeController extends AbstractController
 {
     #[Route('/liste', name: 'app_liste')]
-    public function index(RecetteRepository $recetteRepository): Response
+    public function index(RecetteRepository $recetteRepository, EntityManagerInterface $em): Response
     {
-        $liste = $recetteRepository ->findBy([],['nom'=>'DESC']);
-
+        $recette = $recetteRepository->lister();
+        dump($recette);
         return $this->render('liste/index.html.twig', [
             'controller_name' => 'ListeController',
-            'listeRecettes' => $liste
+            'listeRecettes' => $recette
         ]);
     }
 
     #[Route('/modifFavori/{id}', name: 'app_modif_fav')]
     public function ModifFav(RecetteRepository $recetteRepository,$id,EntityManagerInterface $entityManager, Request $request): Response
     {
-       $recette = $recetteRepository->find($id);
+        $recette = $recetteRepository->find($id);
        $recette->setEstFavori(!$recette->isEstFavori());
        $entityManager->persist($recette);
        $entityManager->flush();
